@@ -10,11 +10,11 @@
 
 ## Datasets
 
-All datasets ([ECG](https://github.com/DSM-fudan/Dumpy?tab=readme-ov-file#datasets), [Seismic](https://ln5.sync.com/dl/0b8135230/39vxx8su-tkfi7t2s-dgsvh8rp-k8ixcs8p?sync_id=12175200430004), [SALD](https://ln5.sync.com/dl/0b8135230/39vxx8su-tkfi7t2s-dgsvh8rp-k8ixcs8p?sync_id=12175200420004) and [DEEP](https://ln5.sync.com/dl/0b8135230/39vxx8su-tkfi7t2s-dgsvh8rp-k8ixcs8p?sync_id=12175200450004)) are publicly available online. Please refer to the links provided to access them. Then, process the dataset into an array of time series in `.npy` format and place them in the `data/` directory.
+All datasets ([ECG](https://github.com/DSM-fudan/Dumpy?tab=readme-ov-file#datasets), [Seismic](https://ln5.sync.com/dl/0b8135230/39vxx8su-tkfi7t2s-dgsvh8rp-k8ixcs8p?sync_id=12175200430004), [SALD](https://ln5.sync.com/dl/0b8135230/39vxx8su-tkfi7t2s-dgsvh8rp-k8ixcs8p?sync_id=12175200420004) and [DEEP](https://ln5.sync.com/dl/0b8135230/39vxx8su-tkfi7t2s-dgsvh8rp-k8ixcs8p?sync_id=12175200450004)) are publicly available online. Please refer to the links provided to access them. Then, process the dataset into an array of time series in `.npy` format and place them in the `data/` directory. Due to the large size of the datasets, we provide an example of a small sampled dataset in the `data/` directory.
 
 ## Time Series Embedding
 
-This repo uses [SEAnet](https://github.com/qtwang/SEAnet) to generate time series embeddings. Please refer to the link provided to generate the embeddings. Process the embeddings into an array of time series embeddings in `.npy` format and place them in the `emb/` directory.
+This repo uses [SEAnet](https://github.com/qtwang/SEAnet) to generate time series embeddings. Please refer to the link provided to generate the embeddings. Process the embeddings into an array of time series embeddings in `.npy` format (similar to dataset processing) and place them in the `emb/` directory.
 
 ## Directory Description
 
