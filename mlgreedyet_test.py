@@ -89,7 +89,7 @@ def mlgreedyET(args, list_of_ts, list_of_ts_emb, max_dist, mlp_reg):
     set_of_uncovered_ts = set(list_of_ts_id)
     set_of_rep_ts = set()
     
-    agg_of_all_ts = aggregate(list_of_ts_id, list_of_ts_emb, agg_type="sum")
+    agg_of_all_ts = aggregate(list_of_ts_id, list_of_ts_emb)
     agg_cur_sol_emb = np.zeros(len(list_of_ts_emb[0]))
     
     pq = []
