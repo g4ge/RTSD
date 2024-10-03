@@ -8,20 +8,17 @@ from sklearn.metrics import pairwise_distances
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 from sklearn.cluster import kmeans_plusplus
+from sklearn.preprocessing import StandardScaler
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from mlp import *
+import pickle as pkl
 
 
 SEED = 42
 MAX_DIST_FILE = "max_dist.json"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-"""
-todo:
-- replace simset with manual calc
-"""
 
 
 def parse_args():
@@ -306,8 +303,11 @@ if __name__ == "__main__":
     # prepare training data
     X, Y = get_training_data(args, list_of_ts, list_of_ts_emb, max_dist)
     X_train, X_valid, Y_train, Y_valid = train_test_split(X, Y, test_size=0.2)
-    train_dataloader = DataLoader(X_train, Y_train)
-    valid_dataloader = DataLoader(X_valid, Y_valid)
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_valid_scaled = scaler.transform(X_valid)
+    pkl.dump(scaler, open("models/{}_scaler.pkl".format(args.dataset), "wb"))
+    train_dataloader = DataLoader(X_train_scaled, Y_train)
+    valid_dataloader = DataLoader(X_valid_scaled, Y_valid)
 
-    MODEL_FILENAME = "models/{}".format(args.dataset)
-    train_model(train_dataloader, valid_dataloader, MODEL_FILENAME)
+    train_model(train_dataloader, valid_dataloader, "models/{}".format(args.dataset))
